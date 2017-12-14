@@ -1,0 +1,26 @@
+package com.internousdev.webproj5.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.internousdev.webproj5.util.DBConnector;
+import com.internousdev.webproj5.dto.InquiryDTO;
+
+
+public class InquiryDAO {
+
+	public List<InquiryDTO> inquiryDTOList = new ArrayList<InquiryDTO>();
+
+	public List<InquiryDTO> select(){
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
+		String sql = "select * from inquiry";
+
+	}
+}
