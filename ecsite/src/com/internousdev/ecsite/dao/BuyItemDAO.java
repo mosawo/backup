@@ -7,33 +7,40 @@ import java.sql.ResultSet;
 import com.internousdev.ecsite.dto.BuyItemDTO;
 import com.internousdev.ecsite.util.DBConnector;
 
-public class BuyItemDAO {
+public class BuyItemDAO{
 	private DBConnector db = new DBConnector();
 	private Connection con = db.getConnection();
-	private BuyItemDTO  dto = new BuyItemDTO();
+	private BuyItemDTO buyItemDTO = new BuyItemDTO();
 
 	/*
 	 * 商品情報取得メソッド
 	 * @return BuyItemDTO
 	 */
+
 	public BuyItemDTO getBuyItemInfo(){
-		String sql = "select id, item_name,item_price from item_info_transaction";
+		//id、name、priceを引き出すSQL文
+		String sql = "select id, item_name, item_price FROM item_info_transaction";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
+			//一件目しか見ない
 			if(rs.next()){
-				dto.setId(rs.getInt("id"));
-				dto.setItemName(rs.getString("item_name"));
-				dto.setItemPrice(rs.getString("item_price"));
+				//dtoにSQL文で引き出したのを入れる
+				buyItemDTO.setId(rs.getInt("id"));
+				buyItemDTO.setItemName(rs.getString("item_name"));
+				buyItemDTO.setItemPrice(rs.getString("item_price"));
+
 			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return dto;
+		return buyItemDTO;
+
+
 	}
 	public BuyItemDTO getBuyItemDTO(){
-		return dto;
+		return buyItemDTO;
 	}
 }

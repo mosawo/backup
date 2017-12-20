@@ -1,12 +1,20 @@
 package com.internousdev.ecsite.dto;
 
 public class LoginDTO{
+	/*
+	 * ID、パスワード、ユーザ名を使う
+	 * あと、ログインフラグ
+	 */
 	private String loginId;
 	private String loginPassword;
 	private String userName;
 
 	private boolean loginFlg = false;
 
+
+	/*
+	 * それぞれのゲッタセッタ
+	 */
 	public String getLoginId(){
 		return loginId;
 	}

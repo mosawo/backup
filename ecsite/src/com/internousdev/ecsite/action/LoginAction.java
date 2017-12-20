@@ -63,10 +63,13 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		// ログイン実行
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 
+		//ログインしたユーザの情報をsessionに格納
 		session.put("loginUser", loginDTO);
 
 		// ログイン情報を比較
+		//
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
+
 			result = SUCCESS;
 
 			// アイテム情報を取得
