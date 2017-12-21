@@ -64,26 +64,24 @@
 </head>
 <body>
 	<div id="header">
-	 	<div id="pr">
+		<div id="pr">
 		</div>
 	</div>
-	<div id="main">
+
+	<div id ="main">
 		<div id="top">
 			<p>Home</p>
 		</div>
+	</div>
 
-		<div id="text-center">
-			<s:form action="HomeAction">
-				<s:submit value="商品購入"/>
-			</s:form>
-			<s:if test="#session.id != null">
-				<p>ログアウトする場合は<a href='<s:url action="LogoutAction" />'>こちら</a></p>
-			</s:if>
-		</div>
+	<div id="text-center">
+		<s:form action="HomeAction">
+			<s:submit value="商品購入"/>
+		</s:form>
+		<s:if test="#session.id !=null">
+			<p>ログアウトする場合は<></p>
+		</s:if>
 	</div>
-	<div id="footer">
-	 	<div id="pr">
-		</div>
-	</div>
+
 </body>
 </html>
