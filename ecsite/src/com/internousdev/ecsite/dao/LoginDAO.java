@@ -27,30 +27,31 @@ public class LoginDAO {
 		String sql = "SELECT * FROM login_user_transaction where login_id = ? AND login_pass = ?";
 
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, loginUserId);
-			preparedStatement.setString(2, loginPassword);
+			//sql格納！！！
+			PreparedStatement ps = connection.prepareStatement(sql);
+			//
+			ps.setString(1, loginUserId);
+			ps.setString(2, loginPassword);
 
-			ResultSet resultSet = preparedStatement.executeQuery();
+			ResultSet rs =ps.executeQuery();
 
-			if(resultSet.next()) {
-				loginDTO.setLoginId(resultSet.getString("login_id"));
-				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
-				loginDTO.setUserName(resultSet.getString("user_name"));
+			if(rs.next()){
+				loginDTO.setLoginId(rs.getString("login_id"));
+				loginDTO.setLoginPassword(rs.getString("login_pass"));
+				loginDTO.setUserName(rs.getString("user_name"));
 
-				if(!(resultSet.getString("login_id").equals(null))) {
+				if(!(rs.getString("login_id").equals(null))){
 					loginDTO.setLoginFlg(true);
 				}
 			}
-
-		} catch(Exception e) {
+		}catch(Exception e){
 			e.printStackTrace();
 		}
-
+		return loginDTO;
+	}
+	//書かなくてもログインはできた
+	public LoginDTO getLoginDTO(){
 		return loginDTO;
 	}
 
-	public LoginDTO getLoginDTO() {
-		return loginDTO;
-	}
 }

@@ -12,9 +12,9 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\internousdev\Desktop\workspace\workspace-honma\backup\ecsite"/>
 			<item value="C:\Users\internousdev\Desktop\workspace\workspace-honma\backup\HelloServlet"/>
 			<item value="C:\Users\internousdev\Desktop\workspace\workspace-honma\backup\template"/>
-			<item value="C:\Users\internousdev\Desktop\workspace\workspace-honma\backup\ecsite"/>
 			<item value="C:\Users\internousdev\Desktop\workspace\workspace-honma\backup"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
