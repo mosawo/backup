@@ -11,29 +11,23 @@ import com.internousdev.ecsite.util.DBConnector;
 
 public class MyPageDAO{
 	private DBConnector db = new DBConnector();
-	private Connection con =db.getConnection();
+	private Connection con = db.getConnection();
 
 	/*
 	 * 商品履歴取得
-	 *
 	 */
-
-	public ArrayList<MyPageDTO> getMyPageUserInfo(String item_transaction_id, String user_master_id) throws SQLException{
+	public ArrayList<MyPageDTO> getMyPageUserInfo(String item_transaction_id, String user_master_id)throws SQLException{
 		ArrayList<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
-
-		String sql ="SELECT ubit.id, iit.item_name, ubit.total_price, ubit.total_count, ubit.pay,ubit.insert_date"
-				+ "FROM user_buy_item_transaction ubit"
-				+ "LEFT JOIN item_info_transaction iit"
-				+ "ON ubit.item_transaction_id = iit.id where ubit.item_transaction_id=?"
-				+ "AND ubit.user_master_id=? "
-				+ "ORDER BY insert_date DESC";
-
-		try {
+		//ubit = user_buy_item 買った商品のテーブル
+		//iit = item_info_transaction 商品情報がはいったテーブル
+		String sql = "SELECT ubit.id, iit.item_name, ubit.total_price, ubit.total_count, ubit.pay, ubit.insert_date FROM user_buy_item_transaction ubit LEFT JOIN item_info_transaction iit ON ubit.item_transaction_id = iit.id where ubit.item_transaction_id  = ? AND ubit.user_master_id  = ? ORDER BY insert_date DESC";
+		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,item_transaction_id);
+			ps.setString(1, item_transaction_id);
 			ps.setString(2, user_master_id);
 
 			ResultSet rs = ps.executeQuery();
+
 
 			while(rs.next()){
 				MyPageDTO dto = new MyPageDTO();
@@ -53,17 +47,18 @@ public class MyPageDAO{
 		return myPageDTO;
 	}
 
-	/*
-	 * 商品履歴削除
-	 */
-	public int buyItemHistoryDelete(String item_transaction_id,String user_master_id) throws SQLException{
 
-		String sql ="DELETE FROM user_buy_item_transaction where item_transaction_id=?"
-				+ "AND user_master_id = ?";
+	/*
+	 * 商品履歴削除メソッド
+	 */
+
+	public int buyItemHistoryDelete(String item_transaction_id, String user_master_id) throws SQLException{
+
+		String sql ="DELETE FROM user_buy_item_transaction where item_transaction_id = ? AND user_master_id = ?";
 
 		PreparedStatement ps;
 		int result = 0;
-		try{
+		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, item_transaction_id);
 			ps.setString(2, user_master_id);
@@ -71,13 +66,13 @@ public class MyPageDAO{
 			result = ps.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();
-		}finally {
+		} finally {
 			con.close();
 		}
 		return result;
 	}
-
 }
+
 
 
 

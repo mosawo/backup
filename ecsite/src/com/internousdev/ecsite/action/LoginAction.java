@@ -20,7 +20,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private String loginUserId;
 	private String loginPassword;
 
-	private Map<String, Object> session;
+	public  Map<String, Object> session;
 
 	private LoginDAO loginDAO = new LoginDAO();
 	private LoginDTO loginDTO = new LoginDTO();
