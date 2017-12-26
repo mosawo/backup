@@ -13,10 +13,18 @@
 	<meta name="keywords" content="" />
 	<title>ホォムがめん！！</title>
 	<style type="text/css">
+
+		#mosa{
+			float: right;
+		}
 	</style>
 </head>
 <body>
-	<h1>おおおおおおい！！！</h1>
+	<h1>ようこそ、モサマートへ！</h1>
+
+	<div id= "mosa">
+		<img src="kinkuma.png" />
+	</div>
 	<s:form action="HomeAction">
 		<s:submit value="ログインはこちらぁ"/>
 	</s:form>

@@ -20,9 +20,22 @@
 <body>
 
 	<h1>そうか！ログインがしたいのか！</h1>
+
+	<!-- ログイン失敗でerrorMessage表示 -->
+		<s:if test ="#session.errorMessage != null">
+			<s:property value="session.errorMessage"/>
+		</s:if>
+
+
+
 	<s:form action = "LoginAction">
 		<s:textfield name="loginUserName"/>
 		<s:password name="loginPassword"/>
+		<s:submit value="ログイン"/>
 	</s:form>
+
+
+
+
 </body>
 </html>

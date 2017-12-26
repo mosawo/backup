@@ -1,0 +1,32 @@
+set names utf8;
+set foreign_key_checks = 0;
+
+drop database if exists ecsite2;
+create database if not exists ecsite2;
+use ecsite2;
+
+
+drop table if exists login_user_info;
+
+/*ユーザー情報テーブル*/
+create table login_user_info(
+id int not null primary key auto_increment,/*ユーザーID*/
+login_pass varchar(16),/*パスワード*/
+user_name varchar(50),/*ユーザー名*/
+insert_date datetime,/*登録日時*/
+update_date datetime/*更新日時*/
+);
+
+drop table if exists item_info;
+create table item_info(
+id int not null primary key auto_increment,
+item_name varchar(30),
+item_detail varchar(500),
+item_price int,
+item_stock int,
+item_img mediumblob not null
+);
+
+INSERT INTO item_info(item_name, item_detail, item_price, item_img)
+VALUES
+("頭文字D","頭文字DのCDです！", 2000,  LOAD_FILE('initiald.jpeg'));

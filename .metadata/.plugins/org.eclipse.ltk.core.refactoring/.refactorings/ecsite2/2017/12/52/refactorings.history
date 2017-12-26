@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="リソース名 &apos;ecsite2/sql/initial_d.jpeg&apos; を &apos;initiald.jpeg&apos; に変更します" description="リソース &apos;initial_d.jpeg&apos; の名前変更" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="sql/initial_d.jpeg" name="initiald.jpeg" stamp="1514264786185" updateReferences="true"/>
+</session>
